@@ -1,0 +1,44 @@
+{
+  "pepoleList": [
+    {
+      "nome": "asd",
+      "cognome": "asd",
+      "luogo_nascita": "asd",
+      "provincia": "asd",
+      "sesso": "F",
+      "data_nascita": "2022-10-20T22:00:00.000Z",
+      "codice_fiscale": "asd",
+      "id": 1
+    },
+    {
+      "nome": "zxc",
+      "cognome": "zxc",
+      "luogo_nascita": "zxc",
+      "provincia": "zxc",
+      "sesso": "A",
+      "data_nascita": "2022-10-19T22:00:00.000Z",
+      "codice_fiscale": "zxc",
+      "id": 2
+    },
+    {
+      "nome": "ewq",
+      "cognome": "qwe",
+      "luogo_nascita": "ewq",
+      "provincia": "ewq",
+      "sesso": "F",
+      "data_nascita": "2022-10-27T22:00:00.000Z",
+      "codice_fiscale": "ewq",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

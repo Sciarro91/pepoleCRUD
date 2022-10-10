@@ -1,0 +1,59 @@
+<h3 mat-dialog-title>Add a Person</h3>
+<div mat-dialog-content>
+  <form [formGroup]="pepoleForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input formControlName="nome" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Cognome</mat-label>
+      <input formControlName="cognome" matInput>
+    </mat-form-field>
+
+    <input hidden formControlName="luogo_nascita" matInput>
+    <mat-form-field appearance="outline">
+      <input matInput placeholder="Cerca Luogo di Nascita" [matAutocomplete]="auto" [(ngModel)]="selectedLuogo"
+        [formControl]="myControl" placeholder="Luogo di Nascita"  >
+      <button *ngIf="selectedLuogo" matSuffix mat-icon-button aria-label="Clear" (click)="clearSelection()">
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-autocomplete  #auto="matAutocomplete" (optionSelected)="onSelected()">
+        <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
+        <ng-container *ngIf="!isLoading">
+          <mat-option *ngFor="let movie of filteredLuoghi" [value]="movie">
+            <span>{{movie}}</span>
+          </mat-option>
+        </ng-container>
+      </mat-autocomplete>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline">
+      <mat-label>Provincia</mat-label>
+      <input formControlName="provincia" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Sesso</mat-label>
+      <mat-select  formControlName="sesso" placeholder="Sesso" appearance="outline">
+          <mat-option value="M">M</mat-option>
+          <mat-option value="F">F</mat-option>
+          <mat-option value="A">Altro</mat-option>        
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Data di Nascita</mat-label>
+      <input formControlName="data_nascita" matInput [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Codice Fiscale</mat-label>
+      <input formControlName="codice_fiscale" matInput>
+    </mat-form-field>  
+  </form> 
+</div>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button mat-raised-button color="primary" (click)="addPerson()" >{{actionBtn}}</button>
+</div>
